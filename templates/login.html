@@ -6,6 +6,7 @@
 {% endblock head %}
 {% block title %}Login{% endblock title %}
 {% block body %}
+{% load widget_tweaks %}
   <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -38,16 +39,17 @@
                 <div class="form-title">
                   <h4 class="title">Sign In</h4>
                 </div>
-                <form action="#">
+                <form  action=""  method="POST">
+                  {% csrf_token %}
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
-                        <input class="form-control" type="email" placeholder="Email">
+                        {% render_field form.username class="form-control" type="text" placeholder="username" %}
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-group">
-                        <input class="form-control" type="password" placeholder="Password">
+                        {% render_field form.password  class="form-control" type="password" placeholder="Password" %}
                       </div>
                     </div>
                     <div class="col-12">
@@ -65,10 +67,11 @@
                     </div>
                     <div class="col-12">
                       <div class="form-group">
-                        <button type="button" class="btn-theme">Sign In</button>
+                        <button type="submit" class="btn-theme">Sign In</button>
                       </div>
                     </div>
                   </div>
+                 
                 </form>
                 <div class="login-register-form-info">
                   <p>Don't you have an account? <a href="register">Register</a></p>
