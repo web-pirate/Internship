@@ -50,7 +50,7 @@
             <div class="header-align">
               <div class="header-align-start">
                 <div class="header-logo-area">
-                  <a href="index.html">
+                  <a href="/">
                     <img class="logo-main" src="{% static 'assets/img/logo-light.webp' %}" alt="Logo" />
                     <img class="logo-light" src="{% static 'assets/img/logo-light.webp' %}" alt="Logo" />
                   </a>
@@ -67,23 +67,30 @@
                         <li><a href="/jobs/job-posts"><span>Job Post</span></a></li>
                       </ul>
                     </li>
-                    <li><a href="employers-details.html"><span>Employers Details</span></a></li>
-                    <li class="has-submenu"><a href="#/"><span>Candidates</span></a>
+
+                    {% if user.is_authenticated and user.is_student %}
+                    <li class="has-submenu"><a href="#/"><span>{{ user.username }}</span></a>
                       <ul class="submenu-nav">
-                        <li><a href="/candidate"><span>Candidates</span></a></li>
-                        <li><a href="/candidate/candidate-details"><span>Candidate Details</span></a></li>
-                        <li><a href="/candidate/create-resume"><span>Candidate Create Resume</span></a></li>
+                        <li><a href="/candidate/candidate-details/{{ user.username }}"><span>Candidate Details</span></a></li>
+                        <li><a href="/candidate/create-resume"><span>Create Resume</span></a></li>
                       </ul>
                     </li>
-                   
-                    <li class="has-submenu"><a href="#/"><span>Pages</span></a>
-                      <ul class="submenu-nav">
+                    {% else %}
+                    <li><a href="employers-details.html"><span>Employers Details</span></a></li>
+                      {% endif %}
+                
+            
+                    
+                        {% if user.is_authenticated and user.is_student %}
                         <li><a href="/aboutus"><span>About us</span></a></li>
-                        <li><a href="/accounts/login"><span>Login</span></a></li
-                        <li><a href="/accountss/profile "><span>Profile</span></a></li>
-                        <li><a href="company-details.html"><span>Company Details</span></a></li>
-                        <li><a href="page-not-found.html"><span>Page Not Found</span></a></li>
+                        {% else %}
+                        <li class="has-submenu"><a href="#/"><span>Pages</span></a>
+                          <ul class="submenu-nav">
+                        <li><a href="/aboutus"><span>About us</span></a></li>
+                        <li><a href="/accounts/login"><span>Login</span></a></li>
                       </ul>
+                        {% endif %}
+                     
                     </li>
                     <li><a href="/contactus"><span>Contact</span></a></li>
                   </ul>
@@ -91,10 +98,17 @@
               </div>
               <div class="header-align-end">
                 <div class="header-action-area">
+                  {% if user.is_authenticated %}
+                  <a class="btn-registration" href="/accounts/logout"><span>+</span> Logout</a>
+                  <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                    <i class="icofont-navigation-menu"></i>
+                  </button>
+                  {% else %}
                   <a class="btn-registration" href="/accounts/register"><span>+</span> Registration</a>
                   <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                     <i class="icofont-navigation-menu"></i>
                   </button>
+                  {% endif %}
                 </div>
               </div>
             </div>
