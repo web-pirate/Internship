@@ -71,7 +71,7 @@
                     {% if user.is_authenticated and user.is_student %}
                     <li class="has-submenu"><a href="#/"><span>{{ user.username }}</span></a>
                       <ul class="submenu-nav">
-                        <li><a href="/candidate/candidate-details"><span>Candidate Details</span></a></li>
+                        <li><a href="/candidate/candidate-details/{{ user.username }}"><span>Candidate Details</span></a></li>
                         <li><a href="/candidate/create-resume"><span>Create Resume</span></a></li>
                       </ul>
                     </li>

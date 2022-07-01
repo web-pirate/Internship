@@ -31,7 +31,7 @@ def login_user(request):
             user = authenticate(username=username, password=password)
             if user is not None and user.is_student:
                 login(request,user)
-                return redirect('/candidate/candidate-details')
+                return redirect(f'/candidate/create-resume')
             elif user is not None and user.is_employee:
                 login(request,user)
                 return redirect('/')

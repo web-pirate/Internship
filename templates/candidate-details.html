@@ -32,19 +32,21 @@
     <section class="team-details-area">
       <div class="container">
         <div class="row">
+         
           <div class="col-12">
             <div class="team-details-wrap">
               <div class="team-details-info">
                 <div class="thumb">
-                  <img src="{% static 'assets/img/team/details1.webp' %}" width="130" height="130" alt="Image-HasTech">
+                   
+                  <img src="/media/{{details.profile_image}}" width="130" height="130" alt="Image-HasTech">
                 </div>
                 <div class="content">
-                  
-                  <h4 class="title">Frida Marchand</h4>
+        
+                  <h4 class="title">{{details.name}}</h4>
                   <h5 class="sub-title">Web Developer</h5>
                   <ul class="info-list">
-                    <li><i class="icofont-location-pin"></i> New York, USA</li>
-                    <li><i class="icofont-phone"></i> +88 456 796 457</li>
+                    <li><i class="icofont-location-pin"></i>{{details.address}}</li>
+                    <li><i class="icofont-phone"></i>{{details.pnumber}}</li>
                   </ul>
                 </div>
               </div>
@@ -77,9 +79,9 @@
                     <p class="desc">It is a long established fact that a reader will be distracted the readable content of a page when looking atits layout the point of using is that has moreo less normal a distribution letters content publishing packages web page editors.</p>
                   </div> -->
                   <div class="content-item">
-                    <h4 class="title">Diploma In Fine Arts <span>//</span> <span>2020 - 2021</span></h4>
-                    <h5 class="sub-title">Franklin and Marshall College</h5>
-                    <p class="desc">It is a long established fact that a reader will be distracted the readable content of a page when looking atits layout the point of using is that has moreo less normal a distribution letters content publishing packages web page editors.</p>
+                    <h4 class="title">{{details.graduation}}<span>//</span> <span>2020 - 2021</span></h4>
+                    <h5 class="sub-title">{{details.college}}</h5>
+                    <p class="desc">{{details.additionalinformation}}</p>
                   </div>
                 </div>
               </div>
@@ -97,9 +99,9 @@
                     <p class="desc">It is a long established fact that a reader will be distracted the readable content of a page when looking atits layout the point of using is that has moreo less normal a distribution letters content publishing packages web page editors.</p>
                   </div> -->
                   <div class="content-item">
-                    <h4 class="title">Senior UI Designer <span>//</span> <span>2020 - Present</span></h4>
-                    <h5 class="sub-title">Karibian IT Solution Ltd.</h5>
-                    <p class="desc">It is a long established fact that a reader will be distracted the readable content of a page when looking atits layout the point of using is that has moreo less normal a distribution letters content publishing packages web page editors.</p>
+                    <h4 class="title">{{details.jobposition}} <span>//</span> <span>{{details.DateFrom.year}}-{{details.DateTo.year}}</span></h4>
+                    <h5 class="sub-title">{{details.companyname}}</h5>
+                    <p class="desc">{{details.additionalInformation2}}</p>
                   </div>
                 </div>
               </div>
@@ -107,10 +109,8 @@
                 <div class="content mb--0">
                   <h4 class="title">Professional Skills</h4>
                   <ul class="team-details-list mb--0">
-                    <li><i class="icofont-check"></i> Web application Design</li>
-                    <li><i class="icofont-check"></i> User Interface (UI) design</li>
-                    <li><i class="icofont-check"></i> Mobile Application Design</li>
-                    <li><i class="icofont-check"></i> Landing Page Design</li>
+                    <li><i class="icofont-check"></i>{{details.skills}}</li>
+              
                     
                   </ul>
                 </div>
@@ -127,6 +127,7 @@
               </div>
             </div>
           </div>
+     
           <div class="col-lg-5 col-xl-4">
             <div class="team-sidebar">
               <div class="widget-item">
@@ -197,6 +198,7 @@
                   <a href="https://dribbble.com/" target="_blank" rel="noopener"><i class="icofont-dribbble"></i></a>
                 </div>
               </div>
+             
               <div class="widget-item widget-contact">
                 <div class="widget-title">
                   <h3 class="title">Contact Now</h3>
