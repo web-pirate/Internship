@@ -34,50 +34,38 @@
     
     <div class="job-post">
       <div class="container">
-        <form class="job-post-from">
+        <form method="POST" class="job-post-from">
+          {% csrf_token %}
           <h2>Fill Up Your Job information</h2>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label>Job Title</label>
-                <input type="text" class="form-control" id="exampleInput1" placeholder="Job Title or Keyword" required>
+                <input type="text" class="form-control" name="jobtitle" id="exampleInput1" placeholder="Job Title or Keyword" required>
               </div>
             </div>
             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
               <div class="form-group">
                 <label>Job Category</label>
-                <select class="form-control">
-                  <option value="1" selected>Web Developer</option>
-                  <option value="2">New York</option>
-                  <option value="3">California</option>
-                  <option value="4">Illinois</option>
-                  <option value="5">Texas</option>
-                  <option value="6">Florida</option>
-                </select>
+                <input type="text" class="form-control" name="jobcategory" id="exampleInput1" placeholder="Job Category" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Company Name</label>
-                <input type="text" class="form-control" id="exampleInput2" placeholder="Company Name" required>
+                <input type="text" class="form-control" name="companyname"id="exampleInput2" placeholder="Company Name" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Company Email</label>
-                <input type="email" class="form-control" id="exampleInput3" placeholder="e.g. hello@company.com" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Company Website (Optional)</label>
-                <input type="text" class="form-control" id="exampleInput4" placeholder="e.g www.companyname.com">
+                <input type="email" class="form-control" name="companymail" id="exampleInput3" name="companymail" placeholder="e.g. hello@company.com" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Location</label>
-                <input type="text" class="form-control" id="exampleInput5" placeholder="e.g. London" required>
+                <input type="text" class="form-control" id="exampleInput5" name="location" placeholder="e.g. London" required>
               </div>
             </div>
             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
@@ -86,36 +74,39 @@
                 <select class="form-control">
                   <option value="1">Full-Time</option>
                   <option value="2">Part-Time</option>
-                  <option value="3">Remote</option>
-                  <option value="4">Illinois</option>
-                  <option value="5">Texas</option>
-                  <option value="6">Florida</option>
                 </select>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Job Tags</label>
-                <input type="text" class="form-control" id="exampleInput6"
+                <input type="text" class="form-control" name="jobtags" id="exampleInput6"
                   placeholder="e.g. web design, graphics design, video editing" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Salary (Optional)</label>
-                <input type="number" class="form-control" id="exampleInput7" placeholder="e.g. $20,000">
+                <input type="number" class="form-control" name="salary" id="exampleInput7" placeholder="e.g. $20,000">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Experience</label>
-                <input type="text" class="form-control" id="exampleInput8" placeholder="e.g. 1 year" required>
+                <input type="text" class="form-control" name="experience" id="exampleInput8" placeholder="e.g. 1 year" required>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">aboutcompany</label>
+                <textarea class="form-control description-area" name="aboutcompany" id="exampleFormControlTextarea1" rows="6"
+                  placeholder="Job Description" required></textarea>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Job Description</label>
-                <textarea class="form-control description-area" id="exampleFormControlTextarea1" rows="6"
+                <textarea class="form-control description-area" name="jobdescription" id="exampleFormControlTextarea1" rows="6"
                   placeholder="Job Description" required></textarea>
               </div>
             </div>

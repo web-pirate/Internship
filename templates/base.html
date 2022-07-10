@@ -60,13 +60,16 @@
                 <div class="header-navigation-area position-relative">
                   <ul class="main-menu nav">
                     <li><a href="/"><span>Home</span></a></li>
-                    <li class="has-submenu"><a href="#/"><span>Find Jobs</span></a>
+                   {% if user.is_authenticated and user.is_employee %}
+                    <li class="has-submenu"><a href="/jobs/job-posted/{{ user.username}}"><span>{{user.username}}</span></a>
                       <ul class="submenu-nav">
-                        <li><a href="/jobs/job"><span>Jobs</span></a></li>
-                        <li><a href="/jobs/job-details"><span>Job Details</span></a></li>
+                       <li><a href="/jobs/job-posted/{{ user.username}}"><span>Jobs-posted</span></a></li>
                         <li><a href="/jobs/job-posts"><span>Job Post</span></a></li>
                       </ul>
                     </li>
+                    {% else %}
+                    <!---<li><a href="/jobs/job"><span>Jobs</span></a></li>-->
+                    {% endif %}
 
                     {% if user.is_authenticated and user.is_student %}
                     <li class="has-submenu"><a href="#/"><span>{{ user.username }}</span></a>
@@ -76,7 +79,7 @@
                       </ul>
                     </li>
                     {% else %}
-                    <li><a href="employers-details.html"><span>Employers Details</span></a></li>
+                     <!--li><a href="employers-details.html"><span>Employers Details</span></a></li>-->
                       {% endif %}
                 
             
