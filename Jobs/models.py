@@ -1,5 +1,6 @@
 from email.utils import localtime
 import uuid
+from  django.contrib.auth.models import User
 from django.db import models
 from pkg_resources import Requirement
 job_type={
@@ -23,4 +24,3 @@ class job_profile(models.Model):
     Requirements=models.TextField()
     benefits=models.TextField()
     jobdescription=models.TextField()
-     
