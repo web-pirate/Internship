@@ -5,6 +5,7 @@ from django.db import models
 from psycopg2 import DateFromTicks
 from pytz import country_names
 
+
 # Create your models here.
 sex_Choices=(
     ("Male","Male"),
@@ -22,7 +23,7 @@ class student_details(models.Model):
     city=models.CharField(max_length=50)
     state=models.CharField(max_length=50)
     country=models.CharField(max_length=50)
-    pnumber=models.IntegerField(null=TRUE)
+    pnumber=models.IntegerField(null=False)
     address=models.TextField(max_length=200)
     email=models.EmailField(max_length=50)
     graduation=models.CharField(max_length=2000)
