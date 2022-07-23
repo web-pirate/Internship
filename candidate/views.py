@@ -1,5 +1,4 @@
 from django.shortcuts import redirect, render
-
 from  django.contrib.auth.models import User
 from candidate.models import student_details
 
@@ -7,13 +6,13 @@ from candidate.models import student_details
 
 
 def candidate_details(request,username):
-    details=student_details.objects.get(username=username)
-    params={
-        "details":details
-    }
     
-
-    return render (request,"candidate-details.html",params) 
+    try:
+     details=student_details.objects.get(username=username)    
+     
+    except:
+        return redirect("/")
+    return render (request,"candidate-details.html",{ "details" :details}) 
 
 def create_resume(request):
     if request.method=="POST":

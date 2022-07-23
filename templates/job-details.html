@@ -38,7 +38,7 @@
             <div class="job-details-wrap">
               <div class="job-details-info">
                 <div class="thumb">
-                  <img src="{% static 'assets/img/companies/10.webp' %}" width="130" height="130" alt="Image-HasTech">
+                  <img src="/media/{{ job_details_posted.joblogo  }}" width="130" height="130" alt="Image-HasTech">
                 </div>
                 <div class="content">
                   <h4 class="title">{{ job_details_posted.jobtitle }}</h4>
@@ -51,7 +51,11 @@
               </div>
               <div class="job-details-price">
                 <h4 class="title">${{ job_details_posted.salary }} <span>/monthly</span></h4>
-                <button type="button" class="btn-theme">Edit</button>
+                {% if user.is_authenticated and user.is_student %}
+                <button type="button" class="btn-theme">Apply</button>
+                {% else %}
+                <button type="button" class="btn-theme">Edit</button>                    
+                {% endif %}
               </div>
             </div>
           </div>
@@ -66,12 +70,12 @@
               <div class="content">
                 <h4 class="title">Responsibilities</h4>
                 <ul class="job-details-list">
-                <p>{{ job_details_posted.responsibilities }}</p>
+                <p>{{ job_details_posted.jobdescription }}</p>
                 </ul>
               </div>
               <div class="content">
                 <h4 class="title">Requirements</h4>
-              <p>{{ job_details_posted.Requirements }}</p>
+              <p>{{ job_details_posted.requirements }}</p>
               </div>
           
               <div class="content">
